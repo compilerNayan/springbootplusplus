@@ -15,21 +15,21 @@ FetchContent_Declare(
     GIT_TAG        main
 )
 
-# Fetch springbootplusplus-data
+# Fetch springbootplusplus_data
 FetchContent_Declare(
-    springbootplusplus-data
-    GIT_REPOSITORY https://github.com/compilerNayan/arduinolib3.git
+    springbootplusplus_data
+    GIT_REPOSITORY https://github.com/compilerNayan/springbootplusplus_data.git
     GIT_TAG        main
 )
 
-# Fetch cpp-logger (cpp_logger)
+# Fetch cpp_logger (cpp_logger)
 FetchContent_Declare(
-    cpp-logger
+    cpp_logger
     GIT_REPOSITORY https://github.com/compilerNayan/cpp_logger.git
     GIT_TAG        main
 )
 
-FetchContent_MakeAvailable(springbootplusplus-web springbootplusplus-data cpp-logger)
+FetchContent_MakeAvailable(springbootplusplus-web springbootplusplus_data cpp_logger)
 
 # Create header-only library (INTERFACE library)
 add_library(springbootplusplus INTERFACE)
@@ -61,34 +61,34 @@ else()
     endif()
 endif()
 
-# Link to springbootplusplus-data
+# Link to springbootplusplus_data
 # Try the namespaced target first, fallback to non-namespaced
-if(TARGET springbootplusplus-data::springbootplusplus-data)
-    target_link_libraries(springbootplusplus INTERFACE springbootplusplus-data::springbootplusplus-data)
-elseif(TARGET springbootplusplus-data)
-    target_link_libraries(springbootplusplus INTERFACE springbootplusplus-data)
+if(TARGET springbootplusplus_data::springbootplusplus_data)
+    target_link_libraries(springbootplusplus INTERFACE springbootplusplus_data::springbootplusplus_data)
+elseif(TARGET springbootplusplus_data)
+    target_link_libraries(springbootplusplus INTERFACE springbootplusplus_data)
 else()
     # Fallback: manually add include directory if target doesn't exist
-    FetchContent_GetProperties(springbootplusplus-data)
-    if(springbootplusplus-data_SOURCE_DIR)
+    FetchContent_GetProperties(springbootplusplus_data)
+    if(springbootplusplus_data_SOURCE_DIR)
         target_include_directories(springbootplusplus INTERFACE
-            $<BUILD_INTERFACE:${springbootplusplus-data_SOURCE_DIR}/src>
+            $<BUILD_INTERFACE:${springbootplusplus_data_SOURCE_DIR}/src>
         )
     endif()
 endif()
 
-# Link to cpp-logger (cpp_logger)
+# Link to cpp_logger (cpp_logger)
 # Try the namespaced target first, fallback to non-namespaced
-if(TARGET cpp-logger::cpp-logger)
-    target_link_libraries(springbootplusplus INTERFACE cpp-logger::cpp-logger)
-elseif(TARGET cpp-logger)
-    target_link_libraries(springbootplusplus INTERFACE cpp-logger)
+if(TARGET cpp_logger::cpp_logger)
+    target_link_libraries(springbootplusplus INTERFACE cpp_logger::cpp_logger)
+elseif(TARGET cpp_logger)
+    target_link_libraries(springbootplusplus INTERFACE cpp_logger)
 else()
     # Fallback: manually add include directory if target doesn't exist
-    FetchContent_GetProperties(cpp-logger)
-    if(cpp-logger_SOURCE_DIR)
+    FetchContent_GetProperties(cpp_logger)
+    if(cpp_logger_SOURCE_DIR)
         target_include_directories(springbootplusplus INTERFACE
-            $<BUILD_INTERFACE:${cpp-logger_SOURCE_DIR}/src>
+            $<BUILD_INTERFACE:${cpp_logger_SOURCE_DIR}/src>
         )
     endif()
 endif()
