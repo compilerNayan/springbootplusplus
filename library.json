@@ -1,0 +1,25 @@
+{
+  "name": "springbootplusplus",
+  "version": "1.0.0",
+  "description": "A header-only library that includes arduinolib2 and arduinolib3 from GitHub",
+  "keywords": "arduino, utility",
+  "authors": [
+    {
+      "name": "Nayan"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/compilerNayan/springbootplusplus.git"
+  },
+  "dependencies": {
+    "springbootplusplus-web": "https://github.com/compilerNayan/arduinolib2.git",
+    "springbootplusplus-data": "https://github.com/compilerNayan/arduinolib3.git",
+    "cpp-logger": "https://github.com/compilerNayan/cpp_logger.git"
+  },
+  "license": "MIT",
+  "homepage": "",
+  "frameworks": "arduino",
+  "platforms": "*"
+}
+
