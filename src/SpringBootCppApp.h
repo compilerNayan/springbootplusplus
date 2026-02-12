@@ -58,10 +58,10 @@ class SpringBootCppApp : public ISpringBootCppApp {
         requestManager->RetrieveRequest();
         
         // Process requests
-        requestManager->ProcessRequest();
+        //requestManager->ProcessRequest();
         
         // Process responses
-        requestManager->ProcessResponse();
+        //requestManager->ProcessResponse();
     }
 };
 
